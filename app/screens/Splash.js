@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         borderRadius: 5,
         marginTop: 20,
-        elevation: 5,
+        elevation: 6,
     }
 })
 
