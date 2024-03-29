@@ -26,7 +26,8 @@ export default function App() {
   return (
     <>
       {/* <Splash /> */}
-      <NoteScreen person={person} />
+      {/* <NoteScreen person={person} /> */}
+      <Splash />
     </>
   )
 }

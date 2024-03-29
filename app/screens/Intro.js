@@ -14,7 +14,7 @@ function Intro() {
     const handleNameSubmitted = async () => {
         const user = { capturedName: name };
         await AsyncStorage.setItem('user', JSON.stringify(name));
-        //console.log(user)
+        // console.log(user)
     }
 
     // console.log(name)

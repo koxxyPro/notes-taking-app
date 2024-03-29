@@ -1,8 +1,9 @@
-import { Button, Dimensions, StyleSheet, Text, View, Image } from 'react-native'
+import { Button, Dimensions, StyleSheet, Text, View, Image, Pressable } from 'react-native'
 import React from 'react'
 import colors from '../misc/colors'
 import Intro from './Intro';
 import ButtonIcon from '../components/ButtonIcon';
+const loginImage = require("../screens/afro-500x500.jpg")
 
 function Splash() {
 
@@ -15,11 +16,11 @@ function Splash() {
     };
     return (
         <View style={styles.container}>
-            {/* <Image source={require('')} /> */}
-            {/* <View style={styles.buttonStyle}>
-                <Button title='Get Started' color={colors.PRIMARY} onPress={handleOnPress} />
-            </View> */}
-            <Text style={styles.getStartedButton}>Get Started</Text>
+            <Text style={{ marginBottom: 30, color: '#555' }}>NOTES TAKING APP</Text>
+            <Image source={loginImage} style={{ width: 200, height: 200 }} />
+            <Pressable onPress={() => console.log("button pressed")}>
+                <Text style={styles.getStartedButton}>Get Started</Text>
+            </Pressable>
         </View>
     );
 }
@@ -35,16 +36,12 @@ const styles = StyleSheet.create({
     getStartedButton: {
         backgroundColor: colors.PRIMARY,
         color: colors.LIGHT,
-        padding: 15,
+        padding: 10,
         fontSize: 18,
         borderRadius: 5,
+        marginTop: 20,
+        elevation: 5,
     }
-    // buttonStyle: {
-    //     flex: 1,
-    //     flexDirection: 'row',
-    //     alignItems: 'flex-end',
-    //     marginBottom: 100,
-    // }
 })
 
 export default Splash;
