@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { StatusBar } from 'expo-status-bar';
 import colors from '../misc/colors';
 import ButtonIcon from '../components/ButtonIcon';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function Intro() {
 
@@ -10,13 +11,19 @@ function Intro() {
 
     const handleOnChangeText = name => setName(name);
 
-    //console.log(name)
+    const handleNameSubmitted = async () => {
+        const user = { capturedName: name };
+        await AsyncStorage.setItem('user', JSON.stringify(name));
+        //console.log(user)
+    }
+
+    // console.log(name)
 
     return (
         <View style={styles.container}>
             <Text style={styles.inputTitle}>Provide your name to continue</Text>
             <TextInput value={name} onChangeText={handleOnChangeText} placeholder="Enter your name here" style={styles.textinput} />
-            {name.trim().length >= 3 ? <ButtonIcon antIconName='arrowright' /> : null}
+            {name.trim().length >= 3 ? <ButtonIcon antIconName='arrowright' onPress={handleNameSubmitted} /> : null}
         </View>
     )
 };
@@ -34,14 +41,14 @@ const styles = StyleSheet.create({
         borderColor: colors.PRIMARY,
         color: colors.GREY,
         width,
-        height: 50,
+        height: 40,
         borderRadius: 6,
         paddingLeft: 6,
-        fontSize: 18,
+        fontSize: 16,
     },
     inputTitle: {
         marginBottom: 5,
-        fontSize: 18,
+        fontSize: 16,
         alignSelf: "flex-start",
         paddingLeft: 25,
         opacity: 0.5,
