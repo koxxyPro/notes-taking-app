@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar'
 import colors from '../misc/colors'
 import SearchBar from '../components/SearchBar'
 import ButtonIcon from '../components/ButtonIcon'
+import NoteInputModal from '../components/NoteInputModal'
 
 const NoteScreen = ({ person }) => {
 
@@ -35,6 +36,7 @@ const NoteScreen = ({ person }) => {
                 <Text style={styles.emptyHeader}>Add Notes</Text>
                 <ButtonIcon antIconName='plus' style={styles.addBtn} />
             </View>
+            <NoteInputModal visible={true} />
         </>
     )
 }

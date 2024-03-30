@@ -15,20 +15,19 @@ export default function App() {
 
   const findUser = async () => {
     const result = await AsyncStorage.getItem('user');
-    setPerson(JSON.parse(result));
+    if (result !== null) {
+      setPerson(JSON.parse(result));
+    }
   }
 
   useEffect(() => {
-    findUser();
+    findUser()
   }, [])
 
+  if (!person.name) return <Intro onFinish={findUser} />
 
   return (
-    <>
-      {/* <Splash /> */}
-      {/* <Intro /> */}
-      <NoteScreen person={person} />
-    </>
+    <NoteScreen person={person} />
   )
 }
 

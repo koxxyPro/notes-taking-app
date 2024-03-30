@@ -5,16 +5,17 @@ import colors from '../misc/colors';
 import ButtonIcon from '../components/ButtonIcon';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-function Intro() {
+function Intro({ onFinish }) {
 
     const [name, setName] = useState('');
 
-    const handleOnChangeText = name => setName(name);
+    const handleOnChangeText = text => setName(text);
 
     const handleNameSubmitted = async () => {
-        const user = { name };
-        await AsyncStorage.setItem('user', JSON.stringify(name));
+        const user = { name: name };
+        await AsyncStorage.setItem('user', JSON.stringify(user));
         // console.log(user)
+        if (onFinish) onFinish();
     }
 
     // console.log(name)
