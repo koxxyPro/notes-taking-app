@@ -12,7 +12,7 @@ function Intro() {
     const handleOnChangeText = name => setName(name);
 
     const handleNameSubmitted = async () => {
-        const user = { capturedName: name };
+        const user = { name };
         await AsyncStorage.setItem('user', JSON.stringify(name));
         // console.log(user)
     }
@@ -21,6 +21,7 @@ function Intro() {
 
     return (
         <View style={styles.container}>
+            <StatusBar style='auto' backgroundColor={colors.LIGHT} />
             <Text style={styles.inputTitle}>Provide your name to continue</Text>
             <TextInput value={name} onChangeText={handleOnChangeText} placeholder="Enter your name here" style={styles.textinput} />
             {name.trim().length >= 3 ? <ButtonIcon antIconName='arrowright' onPress={handleNameSubmitted} /> : null}

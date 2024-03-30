@@ -3,19 +3,14 @@ import React from 'react'
 import colors from '../misc/colors'
 import Intro from './Intro';
 import ButtonIcon from '../components/ButtonIcon';
+import { StatusBar } from 'expo-status-bar';
 const loginImage = require("../screens/afro-500x500.jpg")
 
 function Splash() {
 
-    const handleOnPress = () => {
-        return (
-            <View>
-                <Intro />
-            </View>
-        );
-    };
     return (
         <View style={styles.container}>
+            <StatusBar style='auto' backgroundColor={colors.LIGHT} />
             <Text style={{ marginBottom: 30, color: '#555' }}>NOTES TAKING APP</Text>
             <Image source={loginImage} style={{ width: 200, height: 200 }} />
             <Pressable onPress={() => console.log("button pressed")}>
